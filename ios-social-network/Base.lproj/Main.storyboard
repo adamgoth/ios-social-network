@@ -132,7 +132,7 @@
                                         </constraints>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="3uO-rR-mAw"/>
@@ -150,6 +150,9 @@
                                         <state key="normal" title="LOGIN / SIGN UP">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="attemptLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1F8-yF-t7R"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -192,6 +195,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emailField" destination="mfQ-TK-pOK" id="FpH-d1-8XW"/>
+                        <outlet property="passwordField" destination="MgR-4G-SY7" id="0IA-nu-fiN"/>
                         <segue destination="SXa-37-vUE" kind="show" identifier="loggedIn" id="gSd-ho-fEK"/>
                     </connections>
                 </viewController>
