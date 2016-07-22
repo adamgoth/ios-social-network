@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		EA32CD06E78146953BD214FF /* Pods_ios_social_network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 950F7EEDDD6FF2691A5B0C68 /* Pods_ios_social_network.framework */; };
+		F9351ABF1D42DD870050A704 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9351ABE1D42DD870050A704 /* FeedVC.swift */; };
+		F9351AC11D42DEB90050A704 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9351AC01D42DEB90050A704 /* PostCell.swift */; };
 		F98018B41D419C1A007A3A81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98018B31D419C1A007A3A81 /* AppDelegate.swift */; };
 		F98018B61D419C1A007A3A81 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98018B51D419C1A007A3A81 /* ViewController.swift */; };
 		F98018B91D419C1A007A3A81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F98018B71D419C1A007A3A81 /* Main.storyboard */; };
@@ -32,6 +34,8 @@
 		950F7EEDDD6FF2691A5B0C68 /* Pods_ios_social_network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_social_network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0281C621317210B1A58D0BB /* Pods-ios-social-network.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-social-network.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ios-social-network/Pods-ios-social-network.debug.xcconfig"; sourceTree = "<group>"; };
 		CEEFAE944FC817CB0F68C4A0 /* Pods-ios-social-network.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-social-network.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios-social-network/Pods-ios-social-network.release.xcconfig"; sourceTree = "<group>"; };
+		F9351ABE1D42DD870050A704 /* FeedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
+		F9351AC01D42DEB90050A704 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		F98018B01D419C1A007A3A81 /* ios-social-network.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-social-network.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F98018B31D419C1A007A3A81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F98018B51D419C1A007A3A81 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -115,7 +119,6 @@
 				F98018C61D419C4F007A3A81 /* View */,
 				F98018C51D419C42007A3A81 /* Controller */,
 				F98018B31D419C1A007A3A81 /* AppDelegate.swift */,
-				F98018B51D419C1A007A3A81 /* ViewController.swift */,
 				F98018B71D419C1A007A3A81 /* Main.storyboard */,
 				F98018BA1D419C1A007A3A81 /* Assets.xcassets */,
 				F98018BC1D419C1A007A3A81 /* LaunchScreen.storyboard */,
@@ -128,6 +131,8 @@
 		F98018C51D419C42007A3A81 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F98018B51D419C1A007A3A81 /* ViewController.swift */,
+				F9351ABE1D42DD870050A704 /* FeedVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -138,6 +143,7 @@
 				F98018D11D41AC88007A3A81 /* MaterialView.swift */,
 				F98018D61D41B279007A3A81 /* MaterialButton.swift */,
 				F98018D81D41B4A1007A3A81 /* MaterialTextField.swift */,
+				F9351AC01D42DEB90050A704 /* PostCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -318,6 +324,8 @@
 				F98018E31D424C65007A3A81 /* DataService.swift in Sources */,
 				F98018D21D41AC88007A3A81 /* MaterialView.swift in Sources */,
 				F98018B61D419C1A007A3A81 /* ViewController.swift in Sources */,
+				F9351ABF1D42DD870050A704 /* FeedVC.swift in Sources */,
+				F9351AC11D42DEB90050A704 /* PostCell.swift in Sources */,
 				F98018B41D419C1A007A3A81 /* AppDelegate.swift in Sources */,
 				F98018D51D41ACED007A3A81 /* Constants.swift in Sources */,
 				F98018D71D41B279007A3A81 /* MaterialButton.swift in Sources */,
