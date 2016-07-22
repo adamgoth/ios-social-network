@@ -1,0 +1,6 @@
+framework module Pods_ios_social_network {
+  umbrella header "Pods-ios-social-network-umbrella.h"
+
+  export *
+  module * { export * }
+}
