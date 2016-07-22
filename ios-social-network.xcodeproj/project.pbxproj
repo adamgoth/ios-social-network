@@ -24,6 +24,8 @@
 		F98018DE1D41BD90007A3A81 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F98018DB1D41BD90007A3A81 /* Bolts.framework */; };
 		F98018DF1D41BD90007A3A81 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F98018DC1D41BD90007A3A81 /* FBSDKCoreKit.framework */; };
 		F98018E01D41BD90007A3A81 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F98018DD1D41BD90007A3A81 /* FBSDKLoginKit.framework */; };
+		F98018E31D424C65007A3A81 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98018E21D424C65007A3A81 /* DataService.swift */; };
+		F98018E51D424D60007A3A81 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F98018E41D424D60007A3A81 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		F98018DB1D41BD90007A3A81 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		F98018DC1D41BD90007A3A81 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		F98018DD1D41BD90007A3A81 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		F98018E21D424C65007A3A81 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		F98018E41D424D60007A3A81 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 		F98018B21D419C1A007A3A81 /* ios-social-network */ = {
 			isa = PBXGroup;
 			children = (
+				F98018E11D424C57007A3A81 /* Services */,
 				F98018DA1D41BD80007A3A81 /* Frameworks */,
 				F98018D31D41ACCA007A3A81 /* Util */,
 				F98018C81D419C58007A3A81 /* Resources */,
@@ -115,6 +120,7 @@
 				F98018BA1D419C1A007A3A81 /* Assets.xcassets */,
 				F98018BC1D419C1A007A3A81 /* LaunchScreen.storyboard */,
 				F98018BF1D419C1A007A3A81 /* Info.plist */,
+				F98018E41D424D60007A3A81 /* GoogleService-Info.plist */,
 			);
 			path = "ios-social-network";
 			sourceTree = "<group>";
@@ -170,6 +176,14 @@
 				F98018DD1D41BD90007A3A81 /* FBSDKLoginKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F98018E11D424C57007A3A81 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F98018E21D424C65007A3A81 /* DataService.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F98018CD1D419C70007A3A81 /* NotoSans-Bold.ttf in Resources */,
+				F98018E51D424D60007A3A81 /* GoogleService-Info.plist in Resources */,
 				F98018BE1D419C1A007A3A81 /* LaunchScreen.storyboard in Resources */,
 				F98018CE1D419C70007A3A81 /* NotoSans-BoldItalic.ttf in Resources */,
 				F98018CF1D419C70007A3A81 /* NotoSans-Italic.ttf in Resources */,
@@ -300,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F98018D91D41B4A1007A3A81 /* MaterialTextField.swift in Sources */,
+				F98018E31D424C65007A3A81 /* DataService.swift in Sources */,
 				F98018D21D41AC88007A3A81 /* MaterialView.swift in Sources */,
 				F98018B61D419C1A007A3A81 /* ViewController.swift in Sources */,
 				F98018B41D419C1A007A3A81 /* AppDelegate.swift in Sources */,

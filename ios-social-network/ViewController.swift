@@ -9,6 +9,7 @@
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
+import Firebase
 
 class ViewController: UIViewController {
 
@@ -17,9 +18,12 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if NSUserDefaults.standardUserDefaults().valueForKey(KEY_UID) != nil {
+            self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
+        }
     }
 
     @IBAction func fbBtnPressed(sender: UIButton!) {
@@ -32,6 +36,19 @@ class ViewController: UIViewController {
             } else {
                 let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
                 print("Successfully logged in with Facebook. \(accessToken)")
+                
+                FIRApp.configure()
+                let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
+                FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
+                    
+                    if error != nil {
+                        print("Login failed. \(error)")
+                    } else {
+                        print("Logged in! \(user)")
+                        NSUserDefaults.standardUserDefaults().setValue(user?.uid, forKey: KEY_UID)
+                        self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
+                    }
+                }
             }
         }
     }
