@@ -10,12 +10,16 @@ import Foundation
 import Firebase
 
 class DataService {
+
     static let ds = DataService()
-/*
-    private var _REF_BASE = FIRApp.configure()
     
-    var REF_BASE: FIRApp {
-        return _REF_BASE
+    private var _ref = FIRDatabase.database().reference()
+    
+    var ref: FIRDatabaseReference {
+        return _ref
     }
- */
+    
+    func createFirebaseUser(uid: String, user: Dictionary<String, String>) {
+        ref.child("users").child(uid).setValue(user)
+    }
 }

@@ -7,5 +7,6 @@ target 'ios-social-network' do
 
   # Pods for ios-social-network
   pod 'Firebase/Auth'
+  pod 'Firebase/Database'
 
 end

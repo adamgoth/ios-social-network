@@ -40,14 +40,17 @@ class ViewController: UIViewController {
                 let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
                 print("Successfully logged in with Facebook. \(accessToken)")
                 
-                FIRApp.configure()
                 let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
                 FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
                     
                     if error != nil {
                         print("Login failed. \(error)")
                     } else {
-                        print("Logged in! \(user)")
+                        print("User logged in \(user)")
+                        
+                        let userData = ["provider": "Facebook"]
+                        DataService.ds.createFirebaseUser(user!.uid, user: userData)
+                        
                         NSUserDefaults.standardUserDefaults().setValue(user?.uid, forKey: KEY_UID)
                         self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
                     }
@@ -60,7 +63,6 @@ class ViewController: UIViewController {
         
         if let email = emailField.text where email != "", let pwd = passwordField.text where pwd != "" {
             
-            FIRApp.configure()
             FIRAuth.auth()?.signInWithEmail(email, password: pwd) { (user, error) in
                 if error != nil {
                     print(error)
@@ -73,6 +75,9 @@ class ViewController: UIViewController {
                                 NSUserDefaults.standardUserDefaults().setValue(user!.uid, forKey: KEY_UID)
                                 FIRAuth.auth()?.signInWithEmail(email, password: pwd) { (user, error) in
                                     print("User logged in")
+                                    
+                                    let userData = ["provider": user!.providerID]
+                                    DataService.ds.createFirebaseUser(user!.uid, user: userData)
                                 }
                                 self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
                             }
