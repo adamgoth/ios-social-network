@@ -8,5 +8,6 @@ target 'ios-social-network' do
   # Pods for ios-social-network
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
+  pod 'Alamofire', '~> 3.4'
 
 end
