@@ -10,17 +10,20 @@ import UIKit
 import Alamofire
 import Firebase
 
-class PostCell: UITableViewCell {
+class PostCell: UITableViewCell, UINavigationControllerDelegate {
     
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var showcaseImg: UIImageView!
     @IBOutlet weak var descriptionText: UITextView!
     @IBOutlet weak var likesLbl: UILabel!
     @IBOutlet weak var likeImg: UIImageView!
+    @IBOutlet weak var removeLbl: UILabel!
     
     var post: Post!
     var request: Request?
     var likeRef: FIRDatabaseReference!
+    var postRef: FIRDatabaseReference!
+    var delegate: FeedVC?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,6 +32,12 @@ class PostCell: UITableViewCell {
         tap.numberOfTapsRequired = 1
         likeImg.addGestureRecognizer(tap)
         likeImg.userInteractionEnabled = true
+        
+        let removeTap = UITapGestureRecognizer(target: self, action: "removeTapped:")
+        removeTap.numberOfTapsRequired = 1
+        removeLbl.addGestureRecognizer(removeTap)
+        removeLbl.userInteractionEnabled = true
+        
     }
     
     override func drawRect(rect: CGRect) {
@@ -40,6 +49,7 @@ class PostCell: UITableViewCell {
     func configureCell(post: Post, img: UIImage?) {
         self.post = post
         likeRef = DataService.ds.ref_current_user.child("likes").child(post.postKey)
+        postRef = DataService.ds.posts_ref.child(post.postKey)
         self.descriptionText.text = post.postDescription
         self.likesLbl.text = "\(post.likes)"
         
@@ -92,6 +102,21 @@ class PostCell: UITableViewCell {
             }
             
         })
+    }
+    
+    func removeTapped(sender: UITapGestureRecognizer) {
+        let alertController = UIAlertController(title: "Delete post?", message: "You cannot undo this action.", preferredStyle: .Alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+            print("Canceled action")
+        }
+        alertController.addAction(cancelAction)
+        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+            self.postRef.removeValue()
+            print("Post removed")
+        }
+        alertController.addAction(OKAction)
+        
+        delegate?.showRemoveAlert(alertController)
     }
 
 }

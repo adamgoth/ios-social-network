@@ -67,6 +67,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
             
             cell.request?.cancel()
             
+            cell.delegate = self
+            
             var img: UIImage?
             
             if let url = post.imageUrl {
@@ -160,4 +162,11 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         
         tableView.reloadData()
     }
+    
+    func showRemoveAlert(controller: UIViewController) {
+        self.presentViewController(controller, animated: true) {
+            
+        }
+    }
+    
 }
