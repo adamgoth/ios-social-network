@@ -28,6 +28,7 @@
 		F98018E01D41BD90007A3A81 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F98018DD1D41BD90007A3A81 /* FBSDKLoginKit.framework */; };
 		F98018E31D424C65007A3A81 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98018E21D424C65007A3A81 /* DataService.swift */; };
 		F98018E51D424D60007A3A81 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F98018E41D424D60007A3A81 /* GoogleService-Info.plist */; };
+		F9E7AE971D4AAFD8005A3A2F /* UserConfigVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E7AE961D4AAFD8005A3A2F /* UserConfigVC.swift */; };
 		F9FD13011D463FA700FD763B /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FD13001D463FA700FD763B /* Post.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		F98018DD1D41BD90007A3A81 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		F98018E21D424C65007A3A81 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		F98018E41D424D60007A3A81 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F9E7AE961D4AAFD8005A3A2F /* UserConfigVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserConfigVC.swift; sourceTree = "<group>"; };
 		F9FD13001D463FA700FD763B /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,6 +137,7 @@
 			children = (
 				F98018B51D419C1A007A3A81 /* ViewController.swift */,
 				F9351ABE1D42DD870050A704 /* FeedVC.swift */,
+				F9E7AE961D4AAFD8005A3A2F /* UserConfigVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9E7AE971D4AAFD8005A3A2F /* UserConfigVC.swift in Sources */,
 				F98018D91D41B4A1007A3A81 /* MaterialTextField.swift in Sources */,
 				F98018E31D424C65007A3A81 /* DataService.swift in Sources */,
 				F98018D21D41AC88007A3A81 /* MaterialView.swift in Sources */,

@@ -13,6 +13,7 @@ import Firebase
 class PostCell: UITableViewCell, UINavigationControllerDelegate {
     
     @IBOutlet weak var profileImg: UIImageView!
+    @IBOutlet weak var usernameLbl: UILabel!
     @IBOutlet weak var showcaseImg: UIImageView!
     @IBOutlet weak var descriptionText: UITextView!
     @IBOutlet weak var likesLbl: UILabel!
@@ -23,6 +24,7 @@ class PostCell: UITableViewCell, UINavigationControllerDelegate {
     var request: Request?
     var likeRef: FIRDatabaseReference!
     var postRef: FIRDatabaseReference!
+    var usernameRef: FIRDatabaseReference!
     var delegate: FeedVC?
 
     override func awakeFromNib() {
@@ -50,8 +52,16 @@ class PostCell: UITableViewCell, UINavigationControllerDelegate {
         self.post = post
         likeRef = DataService.ds.ref_current_user.child("likes").child(post.postKey)
         postRef = DataService.ds.posts_ref.child(post.postKey)
+        usernameRef = DataService.ds.ref_current_user.child("username")
         self.descriptionText.text = post.postDescription
         self.likesLbl.text = "\(post.likes)"
+        
+        usernameRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            if let username = snapshot.value as? String {
+                self.usernameLbl.text = "\(username)"
+            }
+        })
+        
         
         if post.imageUrl != nil {
             

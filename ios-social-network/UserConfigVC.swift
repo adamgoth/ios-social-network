@@ -7,29 +7,34 @@
 //
 
 import UIKit
+import Firebase
 
 class UserConfigVC: UIViewController {
+    
+    @IBOutlet weak var usernameField: UITextField!
+    
+    var userRef: FIRDatabaseReference!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        userRef = DataService.ds.ref_current_user.child("username")
 
-        // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(animated: Bool) {
+        userRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            if let doesNotExist = snapshot.value as? NSNull {
+                print("Need to set username")
+            } else {
+                self.performSegueWithIdentifier(SEGUE_USER_COMPLETE, sender: nil)
+            }
+        })
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func createUserTapped(sender: UIButton) {
+        userRef.setValue(usernameField.text)
+        self.performSegueWithIdentifier(SEGUE_USER_COMPLETE, sender: nil)
     }
-    */
 
 }

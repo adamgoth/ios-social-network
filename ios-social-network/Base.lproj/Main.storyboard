@@ -15,8 +15,10 @@
             <string>NotoSans-Bold</string>
             <string>NotoSans-Bold</string>
             <string>NotoSans-Bold</string>
+            <string>NotoSans-Bold</string>
         </mutableArray>
         <mutableArray key="NotoSans-Regular.ttf">
+            <string>NotoSans</string>
             <string>NotoSans</string>
             <string>NotoSans</string>
             <string>NotoSans</string>
@@ -76,7 +78,7 @@
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fb-icon" translatesAutoresizingMaskIntoConstraints="NO" id="p36-ED-gnB">
                                                 <rect key="frame" x="0.0" y="22" width="65" height="65"/>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dkH-AD-bWu" customClass="MaterialButton" customModule="ios_social_network" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dkH-AD-bWu" customClass="MaterialButton" customModule="ios_social_network" customModuleProvider="target">
                                                 <rect key="frame" x="105" y="38" width="415" height="33"/>
                                                 <color key="backgroundColor" red="0.11764705882352941" green="0.53333333333333333" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="15"/>
@@ -204,12 +206,91 @@
                     <connections>
                         <outlet property="emailField" destination="mfQ-TK-pOK" id="FpH-d1-8XW"/>
                         <outlet property="passwordField" destination="MgR-4G-SY7" id="0IA-nu-fiN"/>
-                        <segue destination="yaO-wF-C5b" kind="show" identifier="loggedIn" id="gSd-ho-fEK"/>
+                        <segue destination="GIC-wM-fOD" kind="show" identifier="loggedIn" id="PXQ-ZW-tvo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="245" y="337"/>
+            <point key="canvasLocation" x="-615" y="277"/>
+        </scene>
+        <!--User ConfigVC-->
+        <scene sceneID="dqM-or-cfJ">
+            <objects>
+                <viewController id="GIC-wM-fOD" customClass="UserConfigVC" customModule="ios_social_network" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VGB-ie-Y4X"/>
+                        <viewControllerLayoutGuide type="bottom" id="sya-3d-lFB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jBg-Yx-aDg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nTi-NY-xGd">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="128"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="code-icon-logo" translatesAutoresizingMaskIntoConstraints="NO" id="kMO-Ct-Wc0">
+                                        <rect key="frame" x="547" y="28" width="33" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="33" id="Uwx-sw-f36"/>
+                                            <constraint firstAttribute="height" constant="36" id="vtG-h9-Yeq"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.25615502099999998" blue="0.20352933749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="kMO-Ct-Wc0" firstAttribute="top" secondItem="nTi-NY-xGd" secondAttribute="top" constant="28" id="0Gn-aD-Opg"/>
+                                    <constraint firstAttribute="height" constant="128" id="9Az-Ic-Pfi"/>
+                                    <constraint firstAttribute="trailing" secondItem="kMO-Ct-Wc0" secondAttribute="trailing" constant="20" id="vZQ-Rg-aty"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter desired username " textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p2e-ue-PMj" customClass="MaterialTextField" customModule="ios_social_network" customModuleProvider="target">
+                                <rect key="frame" x="40" y="158" width="520" height="35"/>
+                                <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="5Se-CO-eSW"/>
+                                </constraints>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vtn-JL-NV9" customClass="MaterialButton" customModule="ios_social_network" customModuleProvider="target">
+                                <rect key="frame" x="205" y="218" width="190" height="33"/>
+                                <color key="backgroundColor" red="1" green="0.25615502099999998" blue="0.20352933749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="190" id="cRR-L1-Jvo"/>
+                                    <constraint firstAttribute="height" constant="33" id="h1M-1V-35t"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="15"/>
+                                <state key="normal" title="CREATE USERNAME">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="attemptLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0yo-11-Xii"/>
+                                    <action selector="createUserTapped:" destination="GIC-wM-fOD" eventType="touchUpInside" id="yPR-jk-3Zi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vtn-JL-NV9" firstAttribute="top" secondItem="p2e-ue-PMj" secondAttribute="bottom" constant="25" id="2Er-W0-LUt"/>
+                            <constraint firstItem="p2e-ue-PMj" firstAttribute="leading" secondItem="jBg-Yx-aDg" secondAttribute="leadingMargin" constant="20" id="2Xr-UO-JCe"/>
+                            <constraint firstItem="p2e-ue-PMj" firstAttribute="centerX" secondItem="jBg-Yx-aDg" secondAttribute="centerX" id="3WT-aQ-Jty"/>
+                            <constraint firstItem="nTi-NY-xGd" firstAttribute="top" secondItem="jBg-Yx-aDg" secondAttribute="top" id="4zh-9U-EqY"/>
+                            <constraint firstItem="nTi-NY-xGd" firstAttribute="leading" secondItem="jBg-Yx-aDg" secondAttribute="leading" id="NDi-rb-lue"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="p2e-ue-PMj" secondAttribute="trailing" constant="20" id="RY4-gQ-Ocy"/>
+                            <constraint firstItem="vtn-JL-NV9" firstAttribute="centerX" secondItem="jBg-Yx-aDg" secondAttribute="centerX" id="VkQ-mj-gqW"/>
+                            <constraint firstAttribute="trailing" secondItem="nTi-NY-xGd" secondAttribute="trailing" id="oht-hJ-f6R"/>
+                            <constraint firstItem="p2e-ue-PMj" firstAttribute="top" secondItem="nTi-NY-xGd" secondAttribute="bottom" constant="30" id="zwQ-Ww-H13"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="usernameField" destination="p2e-ue-PMj" id="wcd-rG-QWr"/>
+                        <segue destination="yaO-wF-C5b" kind="show" identifier="userComplete" id="RiI-G6-eWT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cRp-xf-Lyt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="163" y="277"/>
         </scene>
         <!--FeedVC-->
         <scene sceneID="7zv-nc-gkf">
@@ -299,31 +380,31 @@
                                                                                 <constraint firstAttribute="height" constant="50" id="VPp-s4-Sio"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="apg129" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="rzq-Rr-xPa">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="apg129" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="rzq-Rr-xPa">
                                                                             <rect key="frame" x="60" y="0.0" width="51" height="50"/>
                                                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="17"/>
                                                                             <color key="textColor" red="1" green="0.25615502099999998" blue="0.20352933749999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="heart-empty" translatesAutoresizingMaskIntoConstraints="NO" id="JQW-5C-h4z">
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="heart-empty" translatesAutoresizingMaskIntoConstraints="NO" id="JQW-5C-h4z">
                                                                             <rect key="frame" x="121" y="0.0" width="126" height="50"/>
                                                                         </imageView>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="k6V-UW-yrl">
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="k6V-UW-yrl">
                                                                             <rect key="frame" x="257" y="0.0" width="63" height="50"/>
                                                                             <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="1456" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jxi-DP-uQB">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="1456" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jxi-DP-uQB">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="63" height="17"/>
                                                                                     <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="17"/>
                                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Likes" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8e6-EA-oCS">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Likes" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8e6-EA-oCS">
                                                                                     <rect key="frame" x="0.0" y="17" width="63" height="17"/>
                                                                                     <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="17"/>
                                                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Remove" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4l-2O-lUn">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Remove" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4l-2O-lUn">
                                                                                     <rect key="frame" x="0.0" y="34" width="63" height="17"/>
                                                                                     <gestureRecognizers/>
                                                                                     <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="10"/>
@@ -380,6 +461,7 @@
                                             <outlet property="profileImg" destination="XAb-se-zed" id="1wr-12-ggl"/>
                                             <outlet property="removeLbl" destination="g4l-2O-lUn" id="mBL-a7-MFb"/>
                                             <outlet property="showcaseImg" destination="OiU-G2-p51" id="Ubt-pR-R8m"/>
+                                            <outlet property="usernameLbl" destination="rzq-Rr-xPa" id="s6H-9b-chE"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -417,7 +499,7 @@
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="5Aw-yg-VvW"/>
             </objects>
-            <point key="canvasLocation" x="1798" y="337"/>
+            <point key="canvasLocation" x="1794" y="277"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MMx-yE-slI">
@@ -436,7 +518,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n3J-tS-JnD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="986" y="337"/>
+            <point key="canvasLocation" x="1006" y="277"/>
         </scene>
     </scenes>
     <resources>
