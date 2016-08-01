@@ -16,6 +16,7 @@ class Post {
     private var _username: String!
     private var _postKey: String!
     private var _postRef: FIRDatabaseReference!
+    private var _profileImgRef: FIRDatabaseReference!
     
     var postDescription: String {
         return _postDescription
@@ -59,6 +60,8 @@ class Post {
         }
         
         self._postRef = DataService.ds.posts_ref.child(self._postKey)
+        self._profileImgRef = DataService.ds.ref_current_user.child("profileImgUrl")
+        
     }
     
     func adjustLikes(addLike: Bool) {

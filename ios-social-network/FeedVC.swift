@@ -13,9 +13,7 @@ import Alamofire
 class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var postField: MaterialTextField!
-    
     @IBOutlet weak var imageSelectorImage: UIImageView!
     
     var posts = [Post]()
@@ -74,7 +72,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
             if let url = post.imageUrl {
                 img = FeedVC.imageCache.objectForKey(url) as? UIImage
             }
-            
+    
             cell.configureCell(post, img: img)
             
             return cell
@@ -152,6 +150,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         if imgUrl != nil {
             post["imageUrl"] = imgUrl!
         }
+        
+        
         
         let firebasePost = DataService.ds.posts_ref.childByAutoId()
         firebasePost.setValue(post)

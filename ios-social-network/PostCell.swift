@@ -25,6 +25,7 @@ class PostCell: UITableViewCell, UINavigationControllerDelegate {
     var likeRef: FIRDatabaseReference!
     var postRef: FIRDatabaseReference!
     var usernameRef: FIRDatabaseReference!
+    var profileImgRef: FIRDatabaseReference!
     var delegate: FeedVC?
 
     override func awakeFromNib() {
@@ -53,6 +54,7 @@ class PostCell: UITableViewCell, UINavigationControllerDelegate {
         likeRef = DataService.ds.ref_current_user.child("likes").child(post.postKey)
         postRef = DataService.ds.posts_ref.child(post.postKey)
         usernameRef = DataService.ds.ref_current_user.child("username")
+        profileImgRef = DataService.ds.ref_current_user.child("profileImgUrl")
         self.descriptionText.text = post.postDescription
         self.likesLbl.text = "\(post.likes)"
         
@@ -61,14 +63,30 @@ class PostCell: UITableViewCell, UINavigationControllerDelegate {
                 self.usernameLbl.text = "\(username)"
             }
         })
-        
-        
+
+        profileImgRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            if let url = snapshot.value as? String {
+                self.request = Alamofire.request(.GET, url).validate(contentType: ["image/*"]).response(completionHandler: { request, response, data, err in
+                    
+                    if err == nil {
+                        let img = UIImage(data: data!)!
+                        self.profileImg.image = img
+                        FeedVC.imageCache.setObject(img, forKey: url)
+                    } else {
+                        print(err.debugDescription)
+                    }
+                })
+            } else {
+                print("No profile image URL available")
+            }
+        })
+
         if post.imageUrl != nil {
-            
+    
             if img != nil {
                 self.showcaseImg.image = img
             } else {
-                
+    
                 request = Alamofire.request(.GET, post.imageUrl!).validate(contentType: ["image/*"]).response(completionHandler: { request, response, data, err in
                     
                     if err == nil {
