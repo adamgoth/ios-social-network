@@ -15,6 +15,7 @@ let KEY_UID = "uid"
 
 //segues
 let SEGUE_LOGGED_IN = "loggedIn"
+let SEGUE_NEW_LOGIN = "newLogIn"
 let SEGUE_USER_COMPLETE = "userComplete"
 
 //status codes

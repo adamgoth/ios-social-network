@@ -19,6 +19,10 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     var posts = [Post]()
     var imageSelected = false
     var imagePicker: UIImagePickerController!
+    var usernameRef: FIRDatabaseReference!
+    var profileImgRef: FIRDatabaseReference!
+    var username: String?
+    var profileImgUrl: String?
     
     static var imageCache = NSCache()
 
@@ -44,8 +48,21 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
                 }
             }
             
-            
             self.tableView.reloadData()
+        })
+        
+        usernameRef = DataService.ds.ref_current_user.child("username")
+        profileImgRef = DataService.ds.ref_current_user.child("profileImgUrl")
+        usernameRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            if let name = snapshot.value as? String {
+                self.username = name
+            }
+        })
+        
+        profileImgRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            if let url = snapshot.value as? String {
+                self.profileImgUrl = url
+            }
         })
     }
     
@@ -151,7 +168,13 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
             post["imageUrl"] = imgUrl!
         }
         
+        if username != nil {
+            post["username"] = username
+        }
         
+        if profileImgUrl != nil {
+            post["profileImgUrl"] = profileImgUrl
+        }
         
         let firebasePost = DataService.ds.posts_ref.childByAutoId()
         firebasePost.setValue(post)

@@ -16,7 +16,7 @@ class Post {
     private var _username: String!
     private var _postKey: String!
     private var _postRef: FIRDatabaseReference!
-    private var _profileImgRef: FIRDatabaseReference!
+    private var _profileImgUrl: String?
     
     var postDescription: String {
         return _postDescription
@@ -36,6 +36,10 @@ class Post {
     
     var postKey: String {
         return _postKey
+    }
+    
+    var profileImgUrl: String? {
+        return _profileImgUrl
     }
     
     init(description: String, imageUrl: String?, username: String) {
@@ -59,8 +63,15 @@ class Post {
             self._postDescription = desc
         }
         
+        if let name = dictionary["username"] as? String {
+            self._username = name
+        }
+        
+        if let proImgUrl = dictionary["profileImgUrl"] as? String {
+            self._profileImgUrl = proImgUrl
+        }
+        
         self._postRef = DataService.ds.posts_ref.child(self._postKey)
-        self._profileImgRef = DataService.ds.ref_current_user.child("profileImgUrl")
         
     }
     

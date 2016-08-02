@@ -52,7 +52,7 @@ class ViewController: UIViewController {
                         DataService.ds.createFirebaseUser(user!.uid, user: userData)
                         
                         NSUserDefaults.standardUserDefaults().setValue(user?.uid, forKey: KEY_UID)
-                        self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
+                        self.performSegueWithIdentifier(SEGUE_NEW_LOGIN, sender: nil)
                     }
                 }
             }
@@ -79,7 +79,7 @@ class ViewController: UIViewController {
                                     let userData = ["provider": user!.providerID]
                                     DataService.ds.createFirebaseUser(user!.uid, user: userData)
                                 }
-                                self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
+                                self.performSegueWithIdentifier(SEGUE_NEW_LOGIN, sender: nil)
                             }
                         }
                     } else {
@@ -87,7 +87,7 @@ class ViewController: UIViewController {
                     }
                     
                 } else {
-                    self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
+                    self.performSegueWithIdentifier(SEGUE_NEW_LOGIN, sender: nil)
                 }
                 
             }
